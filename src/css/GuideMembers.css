@@ -1,0 +1,30 @@
+.guide-members {
+    margin: 20px;
+  }
+  
+  .guide-members h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .guide-members table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .guide-members th,
+  .guide-members td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .guide-members th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  .guide-members tbody tr:hover {
+    background-color: #f5f5f5;
+  }
+  
