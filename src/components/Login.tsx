@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { useState, ChangeEvent, FormEvent } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate hook
 import "../css/login.css";
 
 interface LoginProps {
-  onLogin: () => void; 
+  onLogin: () => void;
 }
 
 interface LoginData {
@@ -11,11 +12,12 @@ interface LoginData {
   password: string;
 }
 
-const Login: React.FC<LoginProps> = ({ onLogin }) => { // Add LoginProps to the component type definition
+const Login: React.FC<LoginProps> = ({ onLogin }) => {
   const [loginData, setLoginData] = useState<LoginData>({
     username: "",
     password: "",
   });
+  const navigate = useNavigate(); // Initialize useNavigate hook
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -32,6 +34,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => { // Add LoginProps to the 
 
       // Call the onLogin callback function to indicate successful login
       onLogin();
+      navigate('/header'); // Redirect to header page
     } catch (error) {
       console.error("Error logging in:", error);
     }

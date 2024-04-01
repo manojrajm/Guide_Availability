@@ -1,24 +1,56 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Login from './components/Login';
-import './App.css'; // Assuming you have a CSS file for global styles
+import Home from './components/Home';
+import GuideMembers from './components/GuideMembers';
+import AddTeamMembers from './components/AddTeamMembers';
 
-const App: React.FC = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+interface SubmittedData {
+  teamName: string;
+  members: Member[];
+  guide: string;
+}
 
-  const handleLogin = () => {
-    setIsLoggedIn(true);
+interface Member {
+  name: string;
+  rollNumber: string;
+  mobileNumber: string;
+}
+
+function App() {
+  const [submittedData, setSubmittedData] = React.useState<SubmittedData | null>(null);
+
+  // Function to handle form submission in AddTeamMembers
+  const handleFormSubmit = (formData: SubmittedData) => {
+    setSubmittedData(formData);
   };
 
+  // Sample data for guidemembers
+  const sampleGuideMembers = [
+    { id: 1, name: 'John Doe', number: '1234567890' },
+    { id: 2, name: 'Jane Smith', number: '0987654321' },
+    // Add more guide members as needed
+  ];
+
   return (
-    <div className="App">
-      {isLoggedIn ? (
+    <Router>
+      <div>
         <Header />
-      ) : (
-        <Login onLogin={handleLogin} />
-      )}
-    </div>
+        <Routes>
+          <Route
+            path="/"
+            element={<Home submittedData={submittedData ? [submittedData] : null} />} // Pass the submittedData to Home component as an array
+          />
+          <Route path="/guide-members" element={<GuideMembers />} />
+          {/* Pass the guidemembers prop to the AddTeamMembers component */}
+          <Route
+            path="/team-members"
+            element={<AddTeamMembers guidemembers={sampleGuideMembers} onFormSubmit={handleFormSubmit} />}
+          />
+        </Routes>
+      </div>
+    </Router>
   );
-};
+}
 
 export default App;

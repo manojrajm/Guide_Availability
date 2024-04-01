@@ -6,11 +6,11 @@ import {
   faClock,
   faSignOutAlt,
   faUserPlus,
-  faUser
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 import "../css/Header.css";
 import Clock from "./Clock";
-import Home from "./Home";
 
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -28,26 +28,28 @@ const Header: React.FC = () => {
       <button className="menu-button" onClick={toggleMenu}>
         <FontAwesomeIcon icon={faBars} />
       </button>
-      {menuOpen && (
-        <div className="menu">
-          <ul>
-            <li>
-              <FontAwesomeIcon icon={faHome} /> Home
-              <a href="/Home"></a>
-            </li>
-            <li>
+      <div className={`menu ${menuOpen ? "open" : ""}`}>
+        <ul>
+          <li>
+            <FontAwesomeIcon icon={faHome} /> <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/team-members">
+              {" "}
               <FontAwesomeIcon icon={faUserPlus} /> Add Team Members
-            </li>
-            <li>
-              <FontAwesomeIcon icon={faUser} /> Guide Members 
-              <a href="/GuideMembers"></a>
-            </li>
-            <li>
-              <FontAwesomeIcon icon={faSignOutAlt} /> Logout
-            </li>
-          </ul>
-        </div>
-      )}
+            </Link>
+          </li>
+          <li>
+            <Link to="/guide-members">
+              {" "}
+              <FontAwesomeIcon icon={faUser} /> Guide Members{" "}
+            </Link>
+          </li>
+          <li>
+            <FontAwesomeIcon icon={faSignOutAlt} /> Logout
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };

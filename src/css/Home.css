@@ -1,0 +1,170 @@
+/* Home.css */
+
+/* Container styles */
+.home-container {
+  padding: 20px;
+  background-color: #2980b9;
+  color: #fff; /* Text color */
+}
+
+/* Heading styles */
+.home-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Search box container */
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align items to the right */
+  margin-bottom: 20px;
+}
+
+/* Search box styles */
+.search-box {
+  margin-right: 40px;
+  margin-top: -20px;
+  float: right;
+}
+
+.search-box .search-icon {
+  position: absolute;
+  color: black;
+  margin-top: 8px;
+}
+
+.search-box input[type="text"] {
+  width: 200px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-right: 30px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-box input[type="text"]:focus {
+  border-color: #2980b9;
+  box-shadow: 0 0 5px rgba(41, 128, 185, 0.5);
+}
+
+/* Total groups submitted box */
+.total-groups-box {
+  background: linear-gradient(to right, #3498db, #2980b9);
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.total-groups-box:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+/* Download button */
+.download-button {
+  background: linear-gradient(to right, #e74c3c, #c0392b);
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 30px;
+  margin-right: -250px;
+  color: #fff;
+  text-align: center;
+  float: right;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.download-button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+/* Total groups submitted paragraph */
+.home-container p {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* Submitted data container */
+.submitted-data-container {
+  margin-bottom: 30px;
+}
+
+/* Table styles */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Table header and data styles */
+.table th,
+.table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.table td {
+  color: #333;
+}
+
+/* Table header styles */
+.table th {
+  color: #000;
+  font-weight: 600;
+}
+
+/* Media query for mobile responsiveness */
+@media only screen and (max-width: 768px) {
+  /* Adjustments for smaller screens */
+  .search-box {
+    margin-right: -22px;
+    margin-top: 2px;
+    margin-bottom: 20px;
+  }
+
+  .search-box input[type="text"] {
+    width: 300px; /* Decrease width of input field */
+  }
+
+  .download-button {
+    width: 120px;
+    margin: 2px;
+  }
+  .total-groups-box{
+    margin-top: 60px;
+    /* padding: 20px; */
+    width: 100px;
+    height: 80px;
+
+  }
+
+  .download-button {
+    padding: 20 px;
+    margin-left: 50px;
+  }
+}

@@ -1,0 +1,108 @@
+/* addteam.css */
+
+/* Container styles */
+.add-team-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Form styles */
+  .add-team-form {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .add-team-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .add-team-form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .add-team-form input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .add-team-form input[type="submit"],
+  .add-team-form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-team-form input[type="submit"]:hover,
+  .add-team-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Member section styles */
+  .member-section {
+    margin-top: 20px;
+  }
+  
+  .member {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .member h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .member label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  /* Add Member button styles */
+  .add-member-btn {
+    background-color: #28a745;
+  }
+  
+  .add-member-btn:hover {
+    background-color: #218838;
+  }
+  
+  /* Select guide styles */
+  .select-guide {
+    margin-top: 20px;
+  }
+  
+  .select-guide label {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  /* Animation */
+  @keyframes slideInFromLeft {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  .slide-in {
+    animation: slideInFromLeft 0.5s ease;
+  }
+  
