@@ -1,46 +1,61 @@
-# Getting Started with Create React App
+## Project Guide Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Purpose of the Project:
+ 
 
-## Available Scripts
+This is Real time web application is designed to facilitate team management for academic  purposes. It allows users to create teams, add team members, and store team details in a Firebase database. So without stress  students is easily to knw the details of the guide which guide is available
 
-In the project directory, you can run:
+### Features
 
-### `npm start`
+1. **User Authentication**:
+   - Two types of users: student and staff (guide).
+   - Login functionality for both user types.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2. **Team Creation**:
+   - Students can create teams after logging in.
+   - Each team can have a unique name.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+3. **Add Team Members**:
+   - Students can add team members by providing their names and roll numbers.
+   - Roll numbers must be unique within a team.
 
-### `npm test`
+4. **View Team Details**:
+   - Students can view the details of their teams, including team name and members, in a table structure.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+5. **Guide Limitation**:
+   - Guides can only choose up to 3 groups to mentor.
+   - Once the guide has chosen 3 groups, other students cannot select that guide.
 
-### `npm run build`
+6. **Data Storage**:
+   - Team details are stored in a Firebase database for persistence.
+   
+7. **Download**
+    - In that all content and database download in xls and easliy to share the data
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Technologies Used
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **TypeScript**: The primary language for frontend and backend development.
+- **Node.js**: Backend runtime environment.
+- **Express.js**: Backend framework for routing and server setup.
+- **React**: Frontend library for building user interfaces.
+- **Firebase**: Database management system for storing team details.
+- **JWT (JSON Web Tokens)**: For secure authentication.
+- **React Router**: For handling client-side routing in React.
+- **Bootstrap**: CSS framework for styling the frontend.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Setup Instructions
 
-### `npm run eject`
+1. Clone the repository to your local machine.
+2. Navigate to the project directory.
+3. Install dependencies using `npm install`.
+4. Set up the Fireabse database and configure the connection in the backend.
+5. Run the backend server using `npm run start-server`.
+6. Run the frontend server using `npm start`.
+7. Access the application in your web browser at `http://localhost:3000`.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Authors
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ManojRaj M
+### License
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project is licensed under the [MIT License](LICENSE).
