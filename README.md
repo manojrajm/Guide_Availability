@@ -55,7 +55,7 @@ This is Real time web application is designed to facilitate team management for 
 
 ### Authors
 
-ManojRaj M
+* [Manoj Raj M](https://github.com/manojrajm)
 ### License
 
 This project is licensed under the [MIT License](LICENSE).
