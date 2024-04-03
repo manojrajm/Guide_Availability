@@ -19,11 +19,14 @@ interface Props {
     teamName: string;
     members: Member[];
     guide: string;
+    projectTitle: string; 
   }) => void;
 }
 
+
 const AddTeamMembers: React.FC<Props> = ({ guidemembers, onFormSubmit }) => {
   const [teamName, setTeamName] = useState("");
+  const [projectTitle, setProjectTitle] = useState(""); // State for project title
   const [members, setMembers] = useState<Member[]>([
     { name: "", rollNumber: "", mobileNumber: "" },
   ]);
@@ -50,6 +53,12 @@ const AddTeamMembers: React.FC<Props> = ({ guidemembers, onFormSubmit }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validate project title uniqueness
+    if (!isProjectTitleUnique()) {
+      alert("Project title must be unique");
+      return;
+    }
 
     // Retrieve existing submitted data array from localStorage
     const existingSubmittedDataJSON = localStorage.getItem(
@@ -90,6 +99,7 @@ const AddTeamMembers: React.FC<Props> = ({ guidemembers, onFormSubmit }) => {
       teamName,
       members,
       guide: selectedGuide || customGuide,
+      projectTitle, // Include project title in form data
     };
 
     // Append new form data to the existing array
@@ -115,10 +125,33 @@ const AddTeamMembers: React.FC<Props> = ({ guidemembers, onFormSubmit }) => {
     }
   };
 
+  // Function to check if project title is unique
+  const isProjectTitleUnique = () => {
+    // Retrieve existing submitted data array from localStorage
+    const existingSubmittedDataJSON = localStorage.getItem(
+      "submittedDataArray"
+    );
+    const submittedDataArray: any[] = existingSubmittedDataJSON
+      ? JSON.parse(existingSubmittedDataJSON)
+      : [];
+
+    // Check if the project title already exists in the submitted data
+    return !submittedDataArray.some((data) => data.projectTitle === projectTitle);
+  };
+
   return (
     <div className="add-team-container">
       <h2>Add Team Members</h2>
       <form className="add-team-form slide-in" onSubmit={handleSubmit}>
+        <label>
+          Project Title: {/* Input field for project title */}
+          <input
+            type="text"
+            value={projectTitle}
+            onChange={(e) => setProjectTitle(e.target.value)}
+            required
+          />
+        </label>
         <label>
           Team Name:
           <input
@@ -177,18 +210,6 @@ const AddTeamMembers: React.FC<Props> = ({ guidemembers, onFormSubmit }) => {
         </button>
         <div>
           <h3>Select Guide:</h3>
-          {/* Radio buttons for existing guides */}
-          {/* {guidemembers.map((guide, index) => (
-            <label key={index} style={{ marginRight: "10px" }}>
-              <input
-                type="radio"
-                name="guide"
-                value={guide.name}
-                onChange={() => handleGuideSelect(guide.name)}
-              />
-              {guide.name}
-            </label>
-          ))} */}
           {/* Input field for custom guide */}
           <label>
             Custom Guide:

@@ -6,6 +6,7 @@ import GuideMembers from './components/GuideMembers';
 import AddTeamMembers from './components/AddTeamMembers';
 
 interface SubmittedData {
+  projectTitle: string; // Include project title
   teamName: string;
   members: Member[];
   guide: string;

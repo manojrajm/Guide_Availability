@@ -5,10 +5,12 @@ import { CSVLink } from "react-csv"; // Import CSVLink
 import "../css/Home.css";
 
 interface SubmittedData {
+  projectTitle: string;
   teamName: string;
   members: Member[];
   guide: string;
 }
+
 
 interface Member {
   name: string;
@@ -50,6 +52,7 @@ const Home: React.FC<Props> = () => {
   // Data for CSV export
   const csvData = filteredData.flatMap((submittedData) =>
     submittedData.members.map((member) => ({
+      "Project Title": submittedData.projectTitle, // Include project title in CSV data
       "Team Name": submittedData.teamName,
       "Guide": submittedData.guide,
       "Name": member.name,
@@ -89,6 +92,7 @@ const Home: React.FC<Props> = () => {
       {/* Submitted data containers */}
       {filteredData.map((submittedData, index) => (
         <div key={index} className="submitted-data-container">
+          <h3>Project Title: {submittedData.projectTitle}</h3> {/* Display project title */}
           <table className="table">
             <thead>
               <tr>
